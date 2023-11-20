@@ -83,3 +83,16 @@ const feedforward = (input=[], target=0, epochs=0) => {
     }
 }
 ```
+
+## Funções de ativação
+
+### Função de ativação tangente hiperbólica
+
+- função de ativação tangente hiperbólica que retorna um valor entre -1 e 1
+
+```javascript
+
+Math.tanh(x);
+
+``` 
+
