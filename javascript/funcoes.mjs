@@ -17,9 +17,9 @@ const feedforward = (input=[], target=0, epochs=0) => {
         weights.push(Math.random());
     }
 
-    // epochs
+    // loop de quantas vezes a rede neural vai ser treinada
     for (let i = 0; i < epochs; i++) {
-        // multiplicação dos pesos pelos inputs
+        // multiplicação dos pesos pelas entradas
         let mult = [];
         for (let j = 0; j < input.length; j++) {
             if (input[j] <= 0) input[j] = 0.1;
@@ -27,6 +27,7 @@ const feedforward = (input=[], target=0, epochs=0) => {
             mult.push(input[j] * weights[j]);
         
         }
+
         // somatorio dos valores de input * weight
         let sum = Somatorio(mult);
 
@@ -36,11 +37,11 @@ const feedforward = (input=[], target=0, epochs=0) => {
         // erro = valor esperado - valor obtido
         let error = parseFloat(Math.abs(target - output)).toFixed(4);
 
-        // gradient descent
+        // Atualiza os pesos de acordo com o erro
         for (let j = 0; j < weights.length; j++) {
             weights[j] += input[j] * gradientDescent(error);
         }
-        // epoch
+        // epoch formatado com 7 digitos a esquerda
         let epoch = i.toString().padStart(7, '0');
 
         // console
